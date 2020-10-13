@@ -12,14 +12,10 @@ class Note extends Component{
         this.deleteEntryHandler = this.deleteEntryHandler.bind(this)
       }
 
-
     state = {
         height: 0,
         entryArray: [{id: 1, text: '', checked: false, height: 21}]
-    }
-
-
-    
+    }    
 
     render(){
         if(this.state.entryArray.length===0){
@@ -45,17 +41,12 @@ class Note extends Component{
             )
         }
         return (
-            <div className='Note' style = {{height:this.state.height}}>   
-                
-                <button className='plus' onClick={this.props.addNoteHandler}>+</button>
-                             
+            <div className='Note' style = {{height:this.state.height}}>                   
+                <button className='plus' onClick={this.props.addNoteHandler}>+</button>                             
                 <div className='entryArea'>
                     {componentArray}
-                </div>
-                
-                
-                <button className='closeButton' onClick={this.deleteNote}>Delete</button>
-                
+                </div>               
+                <button className='closeButton' onClick={this.deleteNote}>Delete</button>                
             </div>
         )
     }
