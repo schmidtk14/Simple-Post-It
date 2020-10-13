@@ -1,23 +1,18 @@
 import React from 'react';
 import './App.css';
-import Layout from './Layout/Layout'
+import Home from './Home/Home'
 import {BrowserRouter, Switch, Route} from "react-router-dom"
-import UserProvider from './UserProvider/UserProvider'
 
+//originally used firebase backend to support user signup, login and stored each users notes on backend
+//because firebase backend is no longer up and running I decided to remove corresponding pages for portfolio
 function App() {
-  return (
-    <UserProvider>
-      <BrowserRouter>
-        <Switch>
-          <Route exact path = {"/"} component = {Layout} />
-        </Switch>
-      </BrowserRouter>
-    </UserProvider>
-    
-
+  return (    
+    <BrowserRouter>
+      <Switch>
+        <Route exact path = {"/"} component = {Home} />
+      </Switch>
+    </BrowserRouter>
   );
 }
-
-
 
 export default App;

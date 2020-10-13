@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 import {Container, Col} from 'react-bootstrap'
 import Note from '../Note/Note'
-import './Layout.css'
+import './Home.css'
 
-import Toolbar from './../Toolbar/Toolbar'
-import Backdrop from './../Backdrop/Backdrop'
+import Toolbar from '../Toolbar/Toolbar'
+import Backdrop from '../Backdrop/Backdrop'
 import axios from 'axios'
 
 
