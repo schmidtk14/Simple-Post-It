@@ -6,10 +6,8 @@ import ContentEditable from 'react-contenteditable'
 class NoteEntry extends Component{
     constructor(props) {
         super(props)
-        this.contentEditable = React.createRef();
-        
+        this.contentEditable = React.createRef();        
       };
-
 
     state = {
         id: this.props.id,
@@ -24,8 +22,7 @@ class NoteEntry extends Component{
         this.contentEditable.current.focus(); 
      }
 
-    render(){
-        
+    render(){        
         return(
             <div className = 'NoteEntry' >
                 <button className = 'checkbox' onClick={this.checkBoxClicked}>{this.state.checked}</button>
@@ -66,9 +63,8 @@ class NoteEntry extends Component{
         if(this.contentEditable.current.clientHeight !== this.state.height){
             this.setState({height:this.contentEditable.current.clientHeight})
             this.props.changeHeightHandler(this.state.id, this.contentEditable.current.clientHeight)
-        }        
-        
-      }
+        }                
+    }
     
     handleKeyDown = e => {
         if (e.key === 'Enter') {
@@ -76,10 +72,7 @@ class NoteEntry extends Component{
             this.props.addEntryHandler()
             e.preventDefault();
         }
-    }
-
-
-    
+    }   
 
 }
 export default NoteEntry;

@@ -18,6 +18,7 @@ class Note extends Component{
     }    
 
     render(){
+        //if all entries deleted one will be added so there is always at least one entry
         if(this.state.entryArray.length===0){
             this.state.entryArray.concat({id:1, text: '', checked:false, height: 21})
         }
@@ -36,8 +37,7 @@ class Note extends Component{
                     id={this.state.entryArray[i].id}
                     text={this.state.entryArray[i].text}
                     checked={this.state.entryArray[i].checked}
-                    height={this.state.entryArray[i].height}/>  
-                
+                    height={this.state.entryArray[i].height}/>                  
             )
         }
         return (
@@ -56,6 +56,7 @@ class Note extends Component{
         this.props.deleteNoteHandler(id)        
     }
 
+    //adjust height of note when entry height changes or entry added/deleted
     changeHeightHandler = (entryId, height) => {
         const index = this.state.entryArray.findIndex(item => item.id === entryId);
         let newArray = this.state.entryArray
@@ -74,13 +75,11 @@ class Note extends Component{
             this.props.deleteNoteHandler(id)
         }
         else {
-            let newArray = this.state.entryArray  
-                  
+            let newArray = this.state.entryArray                    
             newArray.splice(index, 1)
             this.setState({entryArray: newArray})
             this.setNoteHeight()
         }
-
     }
 
     addEntryHandler = () =>{
@@ -91,15 +90,14 @@ class Note extends Component{
         this.setNoteHeight();
     }
 
+    //set note height depending on size and number of entries
     setNoteHeight(){
         let result = 125
         for(let i=0;i<this.state.entryArray.length; i++){
             result += this.state.entryArray[i].height;
         }
         this.setState({height:result})
-
     }
-    
 }
 
 export default Note;
